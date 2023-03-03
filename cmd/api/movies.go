@@ -70,7 +70,7 @@ func (app *application) showMovieHandler(w http.ResponseWriter, r *http.Request)
 
 	err = app.writeJson(w, http.StatusOK, envelope{"movie": movie}, nil)
 	if err != nil {
-		app.logger.Println(err)
+		app.logger.PrintError(err, nil)
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 	}
 }
